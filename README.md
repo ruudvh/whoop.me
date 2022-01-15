@@ -25,6 +25,7 @@ WHOOP WHOOP WHOOP
 ## Built With
 * Plain HTML / CSS / JS
 * Gifs randomly provided by: [Giphy](www.giphy.com) API
+* Text effect by: [Mauricio](https://codepen.io/mallendeo/pen/zxRwWx)
 
 ## License
 Distributed under the MIT License. See `LICENSE.txt` for more information.
