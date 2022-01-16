@@ -1,5 +1,4 @@
-window.onload = function mainFunction() {
-
+function randomWhoop (){
 	// Giphy API defaults
 	const giphy = {
 		baseURL: "https://api.giphy.com/v1/gifs/",
@@ -35,6 +34,10 @@ window.onload = function mainFunction() {
 	// Display Gif in gif wrap container
 	const gif_wrap = document.getElementById("gifbg");
 	let renderGif = _giphy => {
+		// Static transition
+		renderStatic();
+		
+		// Gif from Giphy
 		gif_wrap.style.backgroundImage ='url("' + _giphy.images.original.url + '")';
 
 		// Auto load new gif
@@ -55,15 +58,14 @@ window.onload = function mainFunction() {
 	let refreshGif = () => {
 		clearInterval(refresh);
 		refresh = setInterval(function () {
-			renderStatic();
 			newGif();
 		}, duration);
 	};
 
 	newGif();
+}
 
-
-
+function textWobble() {
 	// Text wobble effect
 	// https://codepen.io/mallendeo/pen/zxRwWx
 	const wobble_sentence = document.querySelector('.wobble-text');
@@ -89,6 +91,23 @@ window.onload = function mainFunction() {
 }
 
 function playWhoop() {
-	const zoidberg_audio = new Audio('static/zoidberg_whoop_whoop_whoop.mp3');
+	const wobble_text = document.getElementsByClassName("wobble-text");
+	wobble_text[0].style.opacity = 1;
+	
+	const zoidberg_audio = new Audio('./static/zoidberg_whoop_whoop_whoop.mp3');
 	zoidberg_audio.play();
+	
+	const gif_wrap = document.getElementById("gifbg");
+	gif_wrap.style.backgroundImage = 'url("./static/zoidberg.gif")';
+	
+	const duration = 1000 * 5;
+	setTimeout(function() {
+	  wobble_text[0].style.opacity = 0;
+	  zoidberg_audio.pause();
+	}, duration);
+}
+
+window.onload = function mainFunction() {
+	randomWhoop();
+	textWobble();
 }

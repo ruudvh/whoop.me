@@ -44,7 +44,7 @@ h2 {
 	top: 0;
 	left: 0;
 	z-index: 2;
-	background: linear-gradient(rgba(10, 10, 10, 0.6), rgba(0, 0, 0, 0.2)), repeating-linear-gradient( 0, transparent, transparent 2px, black 3px, black 3px);
+	background: linear-gradient(rgba(10, 10, 10, 0.1), rgba(0, 0, 0, 0.2)), repeating-linear-gradient( 0, transparent, transparent 2px, black 3px, black 3px);
 }
 
 .section-bg {
@@ -65,7 +65,7 @@ h2 {
 
 #gifbg {
 	background-image: url("./static/tv_static.gif");
-	background-size: cover;
+	background-size: contain;
 	background-position: center;
 }
 
@@ -75,11 +75,23 @@ h2 {
 	width: 90%;
 }
 
+.click-whoop{
+	padding: 10px;
+	background-color: rgba(0,0,0,0.5);
+}
 
 /*
  Text wobble effect
  https://codepen.io/mallendeo/pen/zxRwWx
 */
+.wobble-text {
+	opacity: 0;
+	-webkit-transition: opacity 1s ease-in-out;
+	-moz-transition: opacity 1s ease-in-out;
+	-ms-transition: opacity 1s ease-in-out;
+	-o-transition: opacity 1s ease-in-out;
+	transition: opacity 1s ease-in-out;
+}
 .wobble-text span {
 	display: inline-block;
 	will-change: transform;
